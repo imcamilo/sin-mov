@@ -19,7 +19,7 @@
         (GET "/" []
             :return {:result s/Str}
             :query-params []
-            :summary "adds two numbers together"
+            :summary "expose simple message in json"
             (ok {:result "Hello Clj!"}))
     
         (GET "/sum" []
