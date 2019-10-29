@@ -3,6 +3,11 @@
               [ring.util.http-response :refer :all]
               [schema.core :as s]))
 
+(s/defschema Language
+{:name s/Str
+    (s/optional-key :description) s/Str
+    :functional boolean})
+
 (def app
     (api
 
@@ -26,5 +31,11 @@
             :return {:result Long}
             :query-params [x :- Long, y :- Long]
             :summary "sum two values"
-            (ok {:result (+ x y)})))))
+            (ok {:result (+ x y)}))
+            
+        (POST "/lang" []
+            :return Language
+            :body [lang Language]
+            :summary "Receive a lang"
+            (ok lang)))))
                   
