@@ -17,7 +17,7 @@
 ; simple request
 (defn simple-request [req]
   {:status  200
-   :headers {"Content-Type" "text/json"}
+   :headers {"Content-Type" "text/html"}
    :body    (str req)})
 
 ; Main routes
