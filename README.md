@@ -1,36 +1,18 @@
 # sin-mov
 
-FIXME: description
+Simple api rest for the future clojure's students/programmers.
 
-## Installation
+## Download dependencies and run
 
-Download from http://example.com/FIXME.
+`lein run`
 
-## Usage
+## Test it
 
-FIXME: explanation
-
-    $ java -jar sin-mov-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+`curl http://localhost:8766/`
 
 ## License
 
-Copyright © 2019 FIXME
+Copyright © 2019 Camilo Jorquera
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
