@@ -15,7 +15,7 @@
             :summary "adds two numbers together"
             (ok {:result "Hello Clj!"}))
     
-        (POST "/merge" []
+        (GET "/merge" []
             :return {:result Long}
             :query-params [x :- Long, y :- Long]
             :summary "sum two values"
