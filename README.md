@@ -1,14 +1,27 @@
-# sin-mov
+# sin_mov
 
 Simple api rest for the future clojure's students/programmers.
 
-## Download dependencies and run
+## Usage
 
-`lein run`
+### Run the application locally
 
-## Test it
+`lein ring server`
 
-`curl http://localhost:8766/`
+### Run the tests
+
+`lein test`
+
+### Packaging and running as standalone jar
+
+```
+lein do clean, ring uberjar
+java -jar target/server.jar
+```
+
+### Packaging as war
+
+`lein ring uberwar`
 
 ## License
 
