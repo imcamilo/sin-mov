@@ -8,25 +8,31 @@
             [clojure.data.json :as json])
   (:gen-class))
 
-; Simple Page
-(defn simple-body-page [req]
+; simple endpoint
+(defn simple-endpoint [req]
   {:status  200
-   :headers {"Content-Type" "text/html"}
-   :body    "Hello World"})
+   :headers {"Content-Type" "application/json"}
+   :body    (str (json/write-str "Hello World"))})
 
+; simple request
+(defn simple-request [req]
+  {:status  200
+   :headers {"Content-Type" "text/json"}
+   :body    (str req)})
 
-; Our main routes
+; Main routes
 (defroutes app-routes
-  (GET "/" [] simple-body-page)
+  (GET "/" [] simple-endpoint)
+  (GET "/simplereq" [] simple-request)
   (route/not-found "Error, page not found!"))
 
-; Our main entry function
+; Main entry function
 (defn -main
-  "This is our main entry point"
+  "This is the main entry point"
   [& args]
   (let [port (Integer/parseInt (or (System/getenv "PORT") "8766"))]
     ; Run the server with Ring.defaults middleware
     (server/run-server (wrap-defaults #'app-routes site-defaults) {:port port})
     ; Run the server without ring defaults
     ;(server/run-server #'app-routes {:port port})
-    (println (str "Running webserver at http:/127.0.0.1:" port "/"))))
+    (println (str "Running with lein and Clojure at http:/127.0.0.1:" port "/"))))
