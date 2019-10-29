@@ -19,4 +19,15 @@
         (let [response (app (-> (mock/request :get "/api/sum?x=10&y=2")))
             body (parse-body (:body response))]
         (is (= (:status response) 200))
-        (is (= (:result body) 12)))))
+        (is (= (:result body) 12))))
+       
+    (testing "Test POST request to /lang returns expected response"
+        (let [lang {:name "Clojure"
+                        :description "Robust, practical, and fast programming language."
+                        :functional true}
+                response (app (-> (mock/request :post "/api/lang")
+                                (mock/content-type "application/json")
+                                (mock/body  (cheshire/generate-string lang))))
+                body (parse-body (:body response))]
+            (is (= (:status response) 200))
+            (is (= body lang)))))
