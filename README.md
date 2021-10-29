@@ -2,6 +2,8 @@
 
 Simple api rest for the future clojure's students/programmers.
 
+![start](https://user-images.githubusercontent.com/4467732/139499913-b0ccb157-b76b-4c39-805e-602f67b44982.jpg)
+
 ## Usage
 
 ### Run the application locally
